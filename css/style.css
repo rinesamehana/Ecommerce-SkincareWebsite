@@ -13,7 +13,9 @@
 *{
     font-family: 'Poppins', sans-serif;
     margin:0; 
-    padding:0;
+    padding:0; 
+    box-sizing: border-box;
+
     outline: none; border:none;
     text-decoration: none;
     text-transform: capitalize;
@@ -217,22 +219,6 @@ section{
     text-decoration: underline;
 }
 
-
-
-
-
-
-
-
-.home{
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    background:url(image/foto1.jpg) no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
 .home .content{
     max-width: 60rem;
 }
@@ -264,10 +250,6 @@ section{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     gap:1.5rem;
-    padding-top: 2cm;
-    padding-bottom: 3cm;
-    padding-left: 6cm;
-    padding-right: 6cm;
     
 }
 
@@ -356,10 +338,6 @@ section{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
     gap:1.5rem;
-    padding-top: 2cm;
-    padding-bottom: 3cm;
-    padding-left: 6cm;
-    padding-right: 6cm;
     
 }
 
@@ -422,10 +400,6 @@ section{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     gap:1.5rem;
-    padding-top: 2cm;
-    padding-bottom: 2cm;
-    padding-left: 6cm;
-    padding-right: 6cm;
     
 }
 
@@ -714,5 +688,80 @@ section{
 
 }
 }
+
+
+
+.about{
+    background: url(../image/foto1.jpg) no-repeat left;
+    background-size: 55%;
+    background-color: #fdfdfd;
+    overflow: hidden;
+    padding: 100px 0;
+}
+.inner-section{
+    width: 55%;
+    float: right;
+    background-color: #fdfdfd;
+    padding: 140px;
+    box-shadow: 10px 10px 8px rgba(0,0,0,0.3);
+}
+.inner-section h1{
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: 900;
+}
+.text{
+    font-size: 13px;
+    color: #545454;
+    line-height: 30px;
+    text-align: justify;
+    margin-bottom: 40px;
+}
+.skills button{
+    font-size: 22px;
+    text-align: center;
+    letter-spacing: 2px;
+    border: none;
+    border-radius: 20px;
+    padding: 8px;
+    width: 200px;
+    background-color: #00999c;
+    color: white;
+    cursor: pointer;
+}
+.skills button:hover{
+    transition: 1s;
+    background-color: #ecf5f5;
+    color: #00999c;
+}
+@media screen and (max-width:1200px){
+    .inner-section{
+        padding: 80px;
+    }
+}
+@media screen and (max-width:1000px){
+    .about{
+        background-size: 100%;
+        padding: 100px 40px;
+    }
+    .inner-section{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:600px){
+    .about{
+        padding: 0;
+    }
+    .inner-section{
+        padding: 60px;
+    }
+    .skills button{
+        font-size: 19px;
+        padding: 5px;
+        width: 160px;
+    }
+}
+
 
 
