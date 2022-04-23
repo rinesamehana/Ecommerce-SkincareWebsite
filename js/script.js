@@ -29,7 +29,6 @@ document.querySelector('#menu-btn').onclick = () =>{
 
 window.onscroll = () =>{
     searchForm.classList.remove('active');
-    shoppingCart.classList.remove('active');
     loginForm.classList.remove('active');
     navbar.classList.remove('active');
 }
@@ -69,6 +68,7 @@ function nextForm(){
     }
     else{
         alert('You have registered succsesfully');
+        location.href = 'index.php';
         return true;
     }
 }
@@ -92,3 +92,4 @@ else {
 setTimeout(function(){window.location.reload();},10);
 }
 }
+
