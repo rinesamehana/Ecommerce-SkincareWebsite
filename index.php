@@ -1,3 +1,8 @@
+<?php
+    require_once './controllers/SliderController.php';
+    $slider = new SliderController();
+    $data=$slider->readSlider();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -5,57 +10,111 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>E-commerce website</title>
-
+        <link rel="icon" href="image/websitelogo.png">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/Slidercss.css">
+        
+        
     </head>
     <body>
-        <header class="header">
+    <!-- ndarje -->
+    <br><br><br><br><br><br>
+        <!-- header -->
 
-            <a href="index.html" class="logo"> <i class=""></i> Skincare </a>
-        
-            <nav class="navbar">
-                <a href="index.html">home</a>
-                <a href="#features">features</a>
-                <a href="products.html">products</a>
-                <a href="#categories">categories</a>
-                <a href="blog1.html" >blogs</a>
-            </nav>
-        
-            <div class="icons">
-                <div class="fas fa-bars" id="menu-btn"></div>
-                <div class="fas fa-search" id="search-btn"></div>
-                <div class="fas fa-shopping-cart" id="cart-btn"></div>
-                <div class="fas fa-user" id="login-btn"></div>
-            </div>
-        
-            <form action="" class="search-form">
-                <input type="search" id="search-box" placeholder="search here...">
-                <label for="search-box" class="fas fa-search"></label>
-            </form>
+       <?php include "includes/header.php" ;?>
 
-            <form action="" class="login-form" onsubmit="return false">
-                <h3>login now</h3>
-                <input type="email" placeholder="your email" id="emailSign" class="box">
-                <input type="password" placeholder="your password" id="passSign" class="box">
-                <p>don't have an account <a href="signup.html">create now</a></p>
-                <input type="submit" value="login now" class="btn" onclick="validateForm()">
-            </form>
-
-          
-        </header>
  <!-- perfundimi pjesa e header --> 
-
-
-         <section class="home" id="home">
-        <div class="content">
-        <h3> We care  about your skin</h3>
-        <p> From the roots of the mother nature.</p>
-        <a href="OurStory.html" class="btn">About us</a>
+ <div class="slider">
+        <?php
+            foreach($data as $key=>$value){ 
+            if($value['id']==1){
+                ?>
+                <input type="radio" name="slide" id="slide-<?php echo $value['id'] ?>" checked>
+                <?php } else {?>
+                    <input type="radio" name="slide" id="slide-<?php echo $value['id'] ?>" >
+        <?php }    }
+        ?>
+    <!-- <input type="radio" name="slide" id="slide-1" checked>
+    <input type="radio" name="slide" id="slide-2">
+    <input type="radio" name="slide" id="slide-3"> -->
+<!-- slider -->
+    <div class="slides">
+        <?php
+            foreach($data as $key=>$value){ ?>
+                <div class="slide" style="background-image: url(<?php echo $value['slider_image'] ?>);">
+                <div class="slide-data">
+                <h1><?php echo $value['slider_title']; ?></h1>
+                <P><?php echo $value['slider_body']; ?></P>
+                    <button onclick="document.location='aboutus.php'"> ABOUT US </button>
+            </div>
+                </div>
+        <?php    }
+        ?>
+        <!-- <div class="slide slide-1">
+            <div class="slide-data">
+                <h1>We care  about your skin</h1>
+                <P>The beauty world is brimming with high-tech devices and cutting-edge ingredients, 
+                    but when it comes to handling some of the most common skin care problems, newer isn't always better. 
+                    In some cases, simple natural options might be as effective as scientifically engineered solutions.</P>
+                    <button onclick="document.location='ourStory.php'"> ABOUT US </button>
+            </div>
         </div>
-       </section> 
+        <div class="slide slide-2">
+            <div class="slide-data">
+                <h1>We care  about your skin</h1>
+                <P>The beauty world is brimming with high-tech devices and cutting-edge ingredients, 
+                    but when it comes to handling some of the most common skin care problems, newer isn't always better. 
+                    In some cases, simple natural options might be as effective as scientifically engineered solutions.</P>
+                    <button onclick="document.location='ourStory.php'"> ABOUT US </button>
+            </div>
+        </div>
+        <div class="slide slide-3">
+            <div class="slide-data">
+                <h1>We care  about your skin</h1>
+                <P>The beauty world is brimming with high-tech devices and cutting-edge ingredients, 
+                    but when it comes to handling some of the most common skin care problems, newer isn't always better. 
+                    In some cases, simple natural options might be as effective as scientifically engineered solutions.</P>
+                    <button onclick="document.location='ourStory.php'"> ABOUT US </button>
+            </div>
+        </div> -->
+    </div>
 
+    <div class="arrows arrow-left">
+        <label for="slide-3">
+            <span><i class="fas fa-angle-left"></i></span>
+        </label>
+        <label for="slide-1">
+            <span><i class="fas fa-angle-left"></i></span>
+        </label>
+        <label for="slide-2">
+            <span><i class="fas fa-angle-left"></i></span>
+        </label>
+    </div>
+
+    <div class="arrows arrow-right">
+        <label for="slide-2">
+            <span><i class="fas fa-angle-right"></i></span>
+        </label>
+        <label for="slide-3">
+            <span><i class="fas fa-angle-right"></i></span>
+        </label>
+        <label for="slide-1">
+            <span><i class="fas fa-angle-right"></i></span>
+        </label>
+    </div>
+
+    <div class="dots">
+    <?php
+            foreach($data as $key=>$value){ 
+                ?>
+                <label for="slide"></label>
+            <?php  }
+        ?>
+    </div>
+</div>
+
+<!-- perfundimi i slider -->
 
 <!-- pjesa e kategorive -->
 
@@ -69,28 +128,28 @@
             <img src="image/facialcleanser.PNG" alt="">
             <h3>Facial Cleansers</h3>
             <br><br>
-            <a href="facialcleanser.html" class="btn">shop now</a>
+            <a href="facialcleanser.php" class="btn">shop now</a>
         </div>
 
         <div class="box">
             <img src="image/faceserum.PNG" alt="">
             <h3>Face Serums</h3>
             <br><br>
-            <a href="faceserums.html" class="btn">See more</a>
+            <a href="faceserums.php" class="btn">See more</a>
         </div>
 
         <div class="box">
             <img src="image/mositurizer.PNG" alt="">
             <h3>Moisturizes</h3>
             <br><br>
-            <a href="moisturizer.html" class="btn">See more</a>
+            <a href="moisturizer.php" class="btn">See more</a>
         </div>
 
         <div class="box">
             <img src="image/bodybutter.PNG" alt="">
             <h3>Body Care</h3>
             <br><br>
-            <a href="bodycare.html" class="btn">See more</a>
+            <a href="bodycare.php" class="btn">See more</a>
         </div>
 
     </div>
@@ -118,7 +177,7 @@
                 </div>
                 <h3>WHAT IS BLUE LIGHT AND HOW DOES IT AFFECT SKIN?</h3>
                 <p>In this blog, we reveal what blue light is, its impact on skin. </p>
-                <a href="blog1.html" class="btn">read more</a>
+                <a href="blog1.php#blog1" class="btn">read more</a>
             </div>
         </div>
 
@@ -131,7 +190,7 @@
                 </div>
                 <h3>FINDING THE BEST CLEANSER FOR ACNE</h3>
                 <p>we make it easer for you to choose the best.</p>
-                <a href="file:///C:/Users/rines/Desktop/web%20project/blog1.html#:~:text=FINDING%20THE%20BEST,Known%20As%20Pores" class="btn">read more</a>
+                <a href="blog1.php#blog2" class="btn">read more</a>
                 
             </div>
         </div>
@@ -145,7 +204,7 @@
                 </div>
                 <h3>WHAT IS RETINOL? BREAKING DOWN THE KEY BENEFITS</h3>
                 <p>If you dont have infos about retinol, here you find it.</p>
-                <a href="file:///C:/Users/rines/Desktop/web%20project/blog1.html#:~:text=WHAT%20IS%20RETINOL%3F%20BREAKING%20DOWN%20THE%20KEY%20BENEFITS" class="btn">read more</a>
+                <a href="blog1.php#blog3" class="btn">read more</a>
             </div>
         </div>
 
@@ -189,65 +248,17 @@
 <!-- features  -->
 
 
-
-
-
 <!-- footer  -->
 
-<section class="footer">
-
-    <div class="box-container">
-
-        <div class="box">
-            <h3> Skincare <i class="fas fa-shopping-basket"></i> </h3>
-            <p>Keep in touch with us!</p>
-            <div class="share">
-                <a href="https://www.facebook.com/" class="fab fa-facebook-f"></a>
-                <a href="https://twitter.com/" class="fab fa-twitter"></a>
-                <a href="https://www.instagram.com/" class="fab fa-instagram"></a>
-                <a href="https://www.linkedin.com/" class="fab fa-linkedin"></a>
-            </div>
-        </div>
-
-        <div class="box">
-            <h3>contact info</h3>
-            <a  class="links"> <i class="fas fa-phone"></i> +38344111222 </a>
-            <a  class="links"> <i class="fas fa-phone"></i> +38349111222 </a>
-            <a  class="links"> <i class="fas fa-envelope"></i> skincare@gmail.com </a>
-            <a  class="links"> <i class="fas fa-map-marker-alt"></i> Prishtinë , Kosovë </a>
-        </div>
-
-        <div class="box">
-            <h3>quick links</h3>
-            <a href="#home" class="links"> <i class="fas fa-arrow-right"></i> home </a>
-            <a href="#features" class="links"> <i class="fas fa-arrow-right"></i> features </a>
-            <a href="products.html" class="links"> <i class="fas fa-arrow-right"></i> products </a>
-            <a href="#categories" class="links"> <i class="fas fa-arrow-right"></i> categories </a>
-            <a href="blog1.html" class="links"> <i class="fas fa-arrow-right"></i> blogs </a>
-        </div>
-
-        <div class="box">
-            <h3>newsletter</h3>
-            <p>subscribe for latest updates</p>
-            <input type="email" placeholder="your email" class="email">
-            <input type="submit" value="subscribe" class="btn">
-            <img src="image/payment.png" class="payment-img" alt="">
-        </div>
-
-    </div>
-
-    <div class="credit"> created by <span> Adi Fejza & Rinesa Mehana </span> | All rights reserved </div>
-
-</section>
+<?php include "includes/footer.php" ;?>
 
 <!-- footer -->
 
 
 
-<script src="script.js">    </script>
 
 
         
     </body>
-
+<script src="js/script.js"></script>
 </html>
