@@ -245,7 +245,7 @@ section{
     transform: translate(-50%, -50%);
 }
 
-.blog1 .main1 h1{
+.blog1 .main1 h2{
     font-size: 3rem;
 }
 .blog1 .main1 p{
@@ -315,7 +315,7 @@ section{
     transform: translate(-50%, -50%);
 }
 
-.blog3 .main3 h3{
+.blog3 .main3 h2{
     font-size: 3rem;
 }
 .blog3 .main3 p{
@@ -498,5 +498,7 @@ section{
     }
 
 }
+
+
 
 
