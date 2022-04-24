@@ -559,7 +559,7 @@ section{
 
 
 
-/*Pjesa  CSS per faqen ReadMore*/
+/* Pjesa  CSS per faqen ReadMore*/
 .main h1{
     color: #133324;
     font-size: 75px;
@@ -607,6 +607,8 @@ section{
     font-size: 12px;
     margin-bottom: 37px;
 }
+
+
 @media screen and (max-width: 768px){
 	.container{
 	width: 80%;
@@ -614,7 +616,7 @@ section{
 	margin:auto;
 	padding-top:50px;
 }
-/*FUND -Pjesa  CSS per faqen ReadMore*/
+
 
 
 
@@ -762,6 +764,7 @@ section{
         width: 160px;
     }
 }
+
 
 
 
