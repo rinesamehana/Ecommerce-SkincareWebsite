@@ -5,16 +5,17 @@
     if(isset($_POST['submit'])){
         $email = $_POST['email'];
         $password = $_POST['password'];
-        $role= $_POST['role'];
 
         if(validateEmptyData($email,$password)){
             header("Location: index.php");
-        }else if(validateData($email,$password,$role=2)){
-            header("Location: views\menuDashboard.php");
+        }else if(validateData($email,$password)){
+            if($_SESSION['roli']==2){
+                header('Location: views\menuDashboard.php');
+            }else if($_SESSION['roli']==1){
+                header('Location: index.php');
+            }
         }else{
-            
             echo '<script>alert("Email ose password eshte gabim!")</script>';
-            
         }
     }
     function validateEmptyData($email,$password){
@@ -37,3 +38,4 @@
         return false; 
     }
 ?>
+
