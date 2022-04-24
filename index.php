@@ -189,7 +189,7 @@
                     <a href="#"> <i class="fas fa-calendar"></i> 1st June, 2020 </a>
                 </div>
                 <h3>FINDING THE BEST CLEANSER FOR ACNE</h3>
-                <p>we make it easer for you to choose the best.</p>
+                <p>we make it easer for you to choose the best cleanser for your skin.</p>
                 <a href="blog1.php#blog2" class="btn">read more</a>
                 
             </div>
@@ -262,3 +262,10 @@
     </body>
 <script src="js/script.js"></script>
 </html>
+<script>
+    <?php if (isset($_SESSION['message']) && $_SESSION['message']=="Yes") { ?>
+        alert('Login Successfully');
+    <?php
+    $m=" ";
+    $_SESSION['message']=$m; } ?>
+</script>
