@@ -239,7 +239,7 @@ require_once '../controllers/ContactController.php';
     <table class="content-table">
         <thead>
         <tr>
-            <th>COMPLAINTS</th>
+            <th>FEEDBACK</th>
             <th></th>
             <th></th>
             <th></th>
